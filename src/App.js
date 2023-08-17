@@ -48,7 +48,11 @@ function Counter() {
       <p style={{ fontWeight: 600, fontSize: "2rem" }}>
         {count === 0
           ? `Today is ${day.toDateString()}`
-          : `${count} days from today is ${new Date(
+          : count > 0
+          ? `${count} days from today is ${new Date(
+              day.setDate(day.getDate() + count)
+            ).toDateString()}`
+          : `${Math.abs(count)} days ago was ${new Date(
               day.setDate(day.getDate() + count)
             ).toDateString()}`}
       </p>
