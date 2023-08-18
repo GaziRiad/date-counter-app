@@ -9,6 +9,11 @@ function Counter() {
   const [count, setCount] = useState(0);
   const [step, setStep] = useState(1);
 
+  function handleReset() {
+    setCount(0);
+    setStep(1);
+  }
+
   return (
     <div
       style={{
@@ -69,6 +74,13 @@ function Counter() {
               day.setDate(day.getDate() + count)
             ).toDateString()}`}
       </p>
+
+      <button
+        style={{ fontWeight: 500, fontSize: "1.6rem" }}
+        onClick={handleReset}
+      >
+        Reset
+      </button>
     </div>
   );
 }
