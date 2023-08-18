@@ -75,12 +75,16 @@ function Counter() {
             ).toDateString()}`}
       </p>
 
-      <button
-        style={{ fontWeight: 500, fontSize: "1.6rem" }}
-        onClick={handleReset}
-      >
-        Reset
-      </button>
+      {count !== 0 || step !== 1 ? (
+        <button
+          style={{ fontWeight: 500, fontSize: "1.6rem" }}
+          onClick={handleReset}
+        >
+          Reset
+        </button>
+      ) : (
+        ""
+      )}
     </div>
   );
 }
