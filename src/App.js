@@ -8,6 +8,7 @@ function Counter() {
   const day = new Date();
   const [count, setCount] = useState(0);
   const [step, setStep] = useState(1);
+
   return (
     <div
       style={{
@@ -26,9 +27,15 @@ function Counter() {
           gap: "1rem",
         }}
       >
-        <button onClick={() => setStep((s) => s - 1)}>-</button>
-        <p style={{ fontWeight: 600, fontSize: "2rem" }}>Step: {step}</p>
-        <button onClick={() => setStep((s) => s + 1)}>+</button>
+        <input
+          // style={{ height: "2rem" }}
+          type="range"
+          min={1}
+          max={10}
+          value={step}
+          onChange={(e) => setStep(+e.target.value)}
+        ></input>
+        <p style={{ fontWeight: 600, fontSize: "2rem" }}>{step}</p>
       </div>
       {/*  */}
       <div
@@ -41,7 +48,13 @@ function Counter() {
         }}
       >
         <button onClick={() => setCount((c) => c - step)}>-</button>
-        <p style={{ fontWeight: 600, fontSize: "2rem" }}>counter: {count}</p>
+        {/* <p style={{ fontWeight: 600, fontSize: "2rem" }}>counter: {count}</p> */}
+        <input
+          type="number"
+          style={{ fontWeight: 500, fontSize: "2rem" }}
+          value={count}
+          onChange={(e) => setCount(+e.target.value)}
+        ></input>
         <button onClick={() => setCount((c) => c + step)}>+</button>
       </div>
 
